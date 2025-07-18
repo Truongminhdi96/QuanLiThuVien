@@ -58,14 +58,9 @@ require_once("connect.php");
                         <a href="#page-top"></a>
                     </li>
                    
+                    
                     <li class="page-scroll">
-                        <a href="#about">Chào <?php echo $_SESSION['username']; ?> </a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Liên Hệ</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="logout.php">Thoát</a>
+                        <a href="/welcome">Thoát</a>
                     </li>
                    
                 </ul>

@@ -51,14 +51,9 @@
                         <a href="#page-top"></a>
                     </li>
                    
+             
                     <li class="page-scroll">
-                        <a href="#about">Thông tin</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Liên Hệ</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#log-reg">Đăng nhập/ Đăng kí</a>
+                        <a href="#log-reg">Đăng nhập</a>
                     </li>
                    
                 </ul>
@@ -77,7 +72,7 @@
                     <div class="intro-text">
                         <span class="name">Quản Lý Thư Viện</span>
                         <hr class="star-light">
-                        <span class="skills">Designed by Thành Trung IT</span>
+                        <span class="skills">Designed by Trương Minh Dĩ - Lê Hoàng Duy</span>
                     </div>
                 </div>
             </div>
@@ -89,81 +84,19 @@
     <section class="success" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Thông Tin</h2>
-                    <hr class="star-light">
-                </div>
+    
             </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Bài tập cuồi kì môn Lập trình Web</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>bbbbbbbbbbbbbbbbbbb!</p>
-                </div>
+            <div style="" class="row">
+            
+                
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Xem thêm...
-                    </a>
+                 
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Contact Me</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <br>
-                        <div id="success"></div>
-                        <div class="row">
-                            <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- LOgin Section -->
 <script type="text/javascript">
 function checklog(){
@@ -190,7 +123,7 @@ function checkreg(){
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Đăng Nhập / Đăng Kí</h2>
+                    <h2>Đăng Nhập </h2>
                     <hr class="star-light">
                 </div>
             </div>
@@ -214,7 +147,7 @@ function checkreg(){
 
                 <div class="col-lg-4">
                     <h4>Đăng kí</h4>
-                    <p>Chức năng Đăng kí Tạm đóng. Vui lòng liên hệ Admin để được cung cấp tài khoản</p>
+                    <p>Chức Năng Đăng Kí Tạm Đóng. Vui Lòng Liên Hệ Admin Để Được Cung Cấp Tài Khoản!</p>
                     <!-- <form id="form-reg" method="POST">
                         <input type="text" class="form-control" name="user" placeholder="enter username">
                         <input type="password" class="form-control" name="pass" placeholder="enter password">
@@ -241,8 +174,8 @@ function checkreg(){
                 <div class="row">
                     <div class="footer-col col-md-4">
                         <h3>Địa chỉ</h3>
-                        <p>15CLC Trường CĐ Công Nghệ Thông Tin Đà Nẵng
-                            <br>Ngũ Hành Sơn- TP Đà Nẵng</p>
+                        <p>Trường CNTT-TT
+                            <br>Đại Học Cần Thơ</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Theo dõi Trên Mạng Xã Hội</h3>
@@ -260,10 +193,10 @@ function checkreg(){
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Author</h3>
-                        <p>Lê Thành Trung 15SI-CLC - Trường CĐ Công Nghệ Thông Tin Đà Nẵng </p>
+                        <h3>Thông Tin</h3>
+                        <p>Trương Minh Dĩ - Lê Hoàng Duy </p>
                         <p>Lập trình viên - web designer </p>
-                        <p> Website: <a href="http://thanhtrungit.com">ThanhTrungIT.Com</a> </p>
+                        <p> Website: <a href="http://quanlithuvien.localhost">quanlithuvien.localhost</a> </p>
                     </div>
                 </div>
             </div>
@@ -272,7 +205,7 @@ function checkreg(){
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; 2016 
+                        Copyright &copy; 2025 
                     </div>
                 </div>
             </div>
