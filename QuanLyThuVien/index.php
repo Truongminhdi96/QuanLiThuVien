@@ -1,6 +1,4 @@
 <?php 
-
-
 require_once("incfiles/head.php");
 ?>
 <br>
@@ -14,7 +12,6 @@ function addtype(){
 			$('#check').load('addtype.php',$('#form-addtype').serializeArray());
 			$('#loadaddtype').html('<i class="fa fa-check-square-o" aria-hidden="true"></i> Thêm');
 		},1000);
-    	
     }
 function addbook(){
 		$('#loadaddbook').html('<i class="fa fa-spinner fa-pulse fa-fw"></i> Đang kiểm tra');
@@ -22,22 +19,15 @@ function addbook(){
 			$('#check2').load('addbook.php',$('#form-addbook').serializeArray());
 			$('#loadaddbook').html('<i class="fa fa-check-square-o" aria-hidden="true"></i> Thêm');
 		},1000);
-    	
     }
-    
 function edittype(id){
 		console.log(id);
-		
 		$('#loadedittype'+id).html('<i class="fa fa-spinner fa-pulse fa-fw"></i> Đang kiểm tra');
 		setTimeout(function(){
 		$('#check'+id).load('edittype.php',$('#form-edittype'+id).serializeArray());
 		$('#loadedittype'+id).html('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save');
 		},1000);
-		
-    	
     }
-   
-
 </script>
 <div class="container-fluid">
 	<div class="row">
@@ -51,19 +41,25 @@ function edittype(id){
 			        <th>Tác vụ</th>
 			      </tr>
 			    </thead>
-
 			    <tbody>
 			    <?php 
-			    	$kq = mysql_query("select * from theloai");
-			    	while ($row = mysql_fetch_array($kq))
-			    	{
-			    		$query_sl = mysql_num_rows(mysql_query("select * from dsbook where theloai = ".$row['ID'].""));
-			    	
-			    		?>
+			    	$query = "SELECT * FROM theloai";
+			    	$result = mysqli_query($conn, $query); // Thay mysql_query
+			    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // Thay mysql_fetch_array
+			    		// Đếm số lượng sách cho mỗi thể loại
+			    		$query_sl = "SELECT COUNT(*) as total FROM dsbook WHERE theloai = ?";
+			    		$stmt = mysqli_prepare($conn, $query_sl);
+			    		mysqli_stmt_bind_param($stmt, "i", $row['ID']); // "i" cho số nguyên
+			    		mysqli_stmt_execute($stmt);
+			    		$result_sl = mysqli_stmt_get_result($stmt);
+			    		$row_sl = mysqli_fetch_assoc($result_sl);
+			    		$total = $row_sl['total'];
+			    		mysqli_stmt_close($stmt);
+			    	?>
 			     <tr>
 			        <td><?php echo $row['ID']; ?></td>
 			        <td><?php echo $row['name']; ?></td>
-			        <td><?php echo $query_sl; ?></td>
+			        <td><?php echo $total; ?></td>
 			        <td>
 			        <!-- View danh sách book -->
 			        <a href="viewlistbook.php?id=<?php echo $row['ID']; ?>"><i class="fa fa-eye" style="color:#5bc0de; margin-right: 10px;" aria-hidden="true"></i></a>
@@ -79,7 +75,7 @@ function edittype(id){
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
 					      <div class="modal-header">
-					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
 					        <h4 class="modal-title" id="myModalLabel">Chỉnh sửa thể loại</h4>
 					      </div>
 					      <div class="modal-body">
@@ -88,20 +84,16 @@ function edittype(id){
 					        		<input class="form-control" type="text" name="theloai" id="etheloai" value="<?php echo $row['name']; ?>">
 					        	</form><br>
 					        	<div id="check<?php echo $row['ID']; ?>"></div>
-					        	
 					      </div>
 					      <div class="modal-footer">
 					        <button onclick="reload();" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							<button id="btn-edittype" onclick="edittype(<?php echo $row['ID']; ?>);" type="button" class="btn btn-primary">
 					        	<div id="loadedittype<?php echo $row['ID']; ?>"><i class="fa fa-check-square-o" aria-hidden="true"></i> Save</div>
 					        </button>
-					        
 					      </div>
 					    </div>
 					  </div>
 					</div>
-					 <!-- end modal -->
-			        
 					</td>
 			      </tr>
 			     <?php } ?>
@@ -147,16 +139,14 @@ function edittype(id){
 						  <label for="sel1">Thể loại:</label>
 						  <select class="form-control" name="theloai" id="sel1">
 						   <?php 
-					    	$kq = mysql_query("select * from theloai");
-					    	while ($row = mysql_fetch_array($kq))
-					    	{
-					    		echo'<option value="'.$row['ID'].'">'.$row['name'].'</option>';
+					    	$query = "SELECT * FROM theloai";
+					    	$result = mysqli_query($conn, $query); // Thay mysql_query
+					    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // Thay mysql_fetch_array
+					    		echo '<option value="'.$row['ID'].'">'.$row['name'].'</option>';
 					    	}
 					    		?>
-
 						  </select>
 						</div>
-						
 					</form>
 					<center>
 						<button onclick="addbook();" name="btn-reg" class="btn btn-info"><div id="loadaddbook"><i class="fa fa-check-square-o" aria-hidden="true"></i> Thêm Sách </div> </button><br>
@@ -165,10 +155,6 @@ function edittype(id){
 				  </div>
 			</div>
 		</div>
-		<!--End  Right col -->
 	</div>
-
 </div>
- <?php require_once("incfiles/end.php"); ?> 
-
-	
+<?php require_once("incfiles/end.php"); ?>
