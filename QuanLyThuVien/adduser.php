@@ -16,7 +16,9 @@ if (isset($_POST['submit'])) {
         $result = mysqli_stmt_execute($stmt);
 
         if ($result) {
-            echo "Thêm người mượn sách thành công!";
+            // Chuyển hướng đến viewuser.php sau khi thêm thành công
+            header("Location: viewuser.php");
+            exit();
         } else {
             echo "Lỗi: " . mysqli_error($conn);
         }
