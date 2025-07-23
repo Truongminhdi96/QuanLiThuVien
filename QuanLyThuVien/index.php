@@ -28,10 +28,22 @@ function edittype(id){
 		$('#loadedittype'+id).html('<i class="fa fa-check-square-o" aria-hidden="true"></i> Save');
 		},1000);
     }
+$(document).ready(function(){
+    $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("table tbody tr:not(:last-child)").filter(function() {
+            $(this).toggle($(this).find("td:eq(1)").text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+});
 </script>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-9">
+			<!-- Thanh tìm kiếm -->
+			<div class="form-group" style="margin-bottom: 15px;">
+				<input type="text" class="form-control" id="searchInput" placeholder="Tìm kiếm thể loại...">
+			</div>
 			<table class="table table-hover">
 			    <thead>
 			      <tr>
@@ -44,12 +56,11 @@ function edittype(id){
 			    <tbody>
 			    <?php 
 			    	$query = "SELECT * FROM theloai";
-			    	$result = mysqli_query($conn, $query); // Thay mysql_query
-			    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // Thay mysql_fetch_array
-			    		// Đếm số lượng sách cho mỗi thể loại
+			    	$result = mysqli_query($conn, $query);
+			    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 			    		$query_sl = "SELECT COUNT(*) as total FROM dsbook WHERE theloai = ?";
 			    		$stmt = mysqli_prepare($conn, $query_sl);
-			    		mysqli_stmt_bind_param($stmt, "i", $row['ID']); // "i" cho số nguyên
+			    		mysqli_stmt_bind_param($stmt, "i", $row['ID']);
 			    		mysqli_stmt_execute($stmt);
 			    		$result_sl = mysqli_stmt_get_result($stmt);
 			    		$row_sl = mysqli_fetch_assoc($result_sl);
@@ -61,16 +72,11 @@ function edittype(id){
 			        <td><?php echo $row['name']; ?></td>
 			        <td><?php echo $total; ?></td>
 			        <td>
-			        <!-- View danh sách book -->
 			        <a href="viewlistbook.php?id=<?php echo $row['ID']; ?>"><i class="fa fa-eye" style="color:#5bc0de; margin-right: 10px;" aria-hidden="true"></i></a>
-			         <!-- Xóa thể loại -->
 			        <a href="deltype.php?id=<?php echo $row['ID']; ?>"><i style="color:red; margin-right: 10px;" class="fa fa-times-circle" aria-hidden="true"></i></a>
-			         <!-- chỉnh sửa thể loại -->
-			        <!-- Button trigger modal -->
 					<a href="" data-toggle="modal" data-target="#myModal<?php echo $row['ID']; ?>">
 					  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 					</a>
-					<!-- Modal -->
 					<div class="modal fade" id="myModal<?php echo $row['ID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 					  <div class="modal-dialog" role="document">
 					    <div class="modal-content">
@@ -111,7 +117,6 @@ function edittype(id){
 			    </tbody>
 			</table>
 		</div>
-		<!-- Right col -->
 		<div class="col-md-3">
 			<div class="panel panel-primary">
 				  <div class="panel-heading">Thêm Sách</div>
@@ -140,8 +145,8 @@ function edittype(id){
 						  <select class="form-control" name="theloai" id="sel1">
 						   <?php 
 					    	$query = "SELECT * FROM theloai";
-					    	$result = mysqli_query($conn, $query); // Thay mysql_query
-					    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { // Thay mysql_fetch_array
+					    	$result = mysqli_query($conn, $query);
+					    	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 					    		echo '<option value="'.$row['ID'].'">'.$row['name'].'</option>';
 					    	}
 					    		?>

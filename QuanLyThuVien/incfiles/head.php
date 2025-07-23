@@ -57,9 +57,11 @@ require_once("connect.php");
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                   
+                     <li class="page-scroll">
+                        <a href="/thongke.php">Thống kê</a>
+                    </li>
                     <li class="page-scroll">
-                        <a href="/adduser.php">Quản Lí Người Dùng</a>
+                        <a href="/viewuser.php">Quản Lí Người Dùng</a>
                     </li>
                     <li class="page-scroll">
                         <a href="/welcome">Thoát</a>

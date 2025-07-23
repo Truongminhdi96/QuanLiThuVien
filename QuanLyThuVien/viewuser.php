@@ -122,6 +122,7 @@ $result = mysqli_query($conn, "SELECT * FROM nguoidung");
             }
             ?>
         </table>
+        <a href="adduser.php" class="home-btn">Thêm người mượn</a>
         <a href="index.php" class="home-btn">Về trang chủ</a>
     </div>
     <?php mysqli_close($conn); ?>
