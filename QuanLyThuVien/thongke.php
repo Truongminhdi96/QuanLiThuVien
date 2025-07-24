@@ -15,9 +15,7 @@ $total_borrowed = mysqli_fetch_assoc($total_borrowed_result)['total_borrowed'];
             <a href="index.php" class="btn btn-primary" style="margin-bottom: 15px; margin-right: 10px;">
                 <i class="fa fa-home" aria-hidden="true"></i> Về trang chủ
             </a>
-            <a href="manage_borrowers.php" class="btn btn-secondary" style="margin-bottom: 15px;">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i> Quản lý người mượn
-            </a>
+
             <!-- Tổng số sách đang mượn -->
             <div class="alert alert-info" style="margin-bottom: 15px;">
                 <strong>Tổng số sách đang mượn:</strong> <?php echo htmlspecialchars($total_borrowed); ?> cuốn
