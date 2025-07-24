@@ -61,7 +61,7 @@ require_once("connect.php");
                         <a href="/thongke.php">Thống kê</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="/viewuser.php">Quản Lí Người Dùng</a>
+                        <a href="/manage_users.php">Quản Lí Người Dùng</a>
                     </li>
                     <li class="page-scroll">
                         <a href="/welcome">Thoát</a>
